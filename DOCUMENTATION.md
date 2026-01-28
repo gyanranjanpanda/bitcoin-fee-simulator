@@ -1,43 +1,50 @@
-# Bitcoin Fee Simulator - Technical Documentation
+# Bitcoin Fee Simulator - Technical Deep Dive
 
-## 📖 Table of Contents
-- [Why I Created This](#why-i-created-this)
-- [Real-World Usage](#real-world-usage)
-- [Core Algorithm](#core-algorithm)
-- [Technical Implementation](#technical-implementation)
-- [Architecture](#architecture)
+## What's in here
+
+- [Why I made this](#why-i-made-this)
+- [Real-world uses](#real-world-uses)
+- [The algorithm explained](#the-algorithm-explained)
+- [How I built it](#how-i-built-it)
+- [Architecture stuff](#architecture-stuff)
 
 ---
 
-## 🎯 Why I Created This
+## Why I made this
 
-### The Problem
-Bitcoin's fee market is often confusing for users. Many people experience:
+### The actual problem
 
-1. **Transaction Delays**: Transactions stuck in the mempool for hours or even days
-2. **Overpaying Fees**: Users pay unnecessarily high fees due to lack of understanding
-3. **Lack of Transparency**: No clear visibility into how miners actually prioritize transactions
-4. **Misconceptions**: People think transaction value matters, but miners only care about fee rate
+Bitcoin's fee market is confusing as hell. Here's what happens to most people:
 
-### The Insight
-After studying Bitcoin's transaction selection mechanism, I realized that miners use a simple but effective **greedy algorithm** to maximize their profits. They:
-- Sort all pending transactions by fee rate (satoshis per virtual byte)
-- Pack transactions into blocks until the 1MB size limit is reached
-- Ignore everything else (transaction value, sender identity, etc.)
+1. **Stuck transactions**: You send BTC and it just... sits there. For hours. Sometimes days.
+2. **Overpaying**: You panic and set fees way too high because you don't know what's actually needed
+3. **No visibility**: There's no easy way to see what miners are actually doing
+4. **Wrong assumptions**: People think sending $10,000 vs $100 matters. It doesn't. Miners only care about the fee rate.
 
-### The Solution
-I built this simulator to:
-- **Educate users** about how Bitcoin's fee market actually works
-- **Visualize the selection process** in real-time with live mempool data
-- **Help users make informed decisions** about transaction fees
-- **Demonstrate algorithmic thinking** in a real-world blockchain context
+### What I figured out
 
-### Personal Motivation
-As someone interested in blockchain technology and financial systems, I wanted to:
-- Understand Bitcoin's economic incentive structure at a deeper level
-- Build a practical tool that solves a real problem
-- Demonstrate my ability to work with APIs, algorithms, and data visualization
-- Create something that both technical and non-technical users can benefit from
+After reading way too much Bitcoin documentation, I realized miners use a super simple algorithm. They:
+- Sort every transaction by fee rate (sats per byte)
+- Pack them into blocks until they hit 1MB
+- That's literally it
+
+No fancy AI, no complex optimization. Just sort and pack. Greedy algorithm at its finest.
+
+### What I built
+
+This simulator does exactly what miners do, but shows you the results in a nice terminal UI. Now you can:
+- See where your transaction would rank
+- Figure out the minimum fee needed for next block
+- Understand why that 1 sat/vB transaction is still pending from last week
+- Actually learn how Bitcoin's fee market works
+
+### Why I personally cared
+
+I'm into blockchain tech and wanted to understand the economics better. Plus I was getting annoyed paying random fees without knowing if they were right. This project let me:
+- Learn the actual Bitcoin fee mechanism
+- Build something useful (not just another todo app)
+- Practice working with APIs and algorithms
+- Make a portfolio piece that shows I can solve real problems
 
 ---
 
