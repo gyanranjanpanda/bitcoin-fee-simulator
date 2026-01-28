@@ -1,4 +1,4 @@
-# ₿ Bitcoin Fee Simulator
+# Bitcoin Fee Simulator
 
 Ever sent a Bitcoin transaction and wondered why it's taking forever? Or why you had to pay $20 in fees during peak times? This tool shows you exactly what's happening behind the scenes.
 

@@ -48,9 +48,9 @@ I'm into blockchain tech and wanted to understand the economics better. Plus I w
 
 ---
 
-## 🌍 Real-World Usage
+## Real-world uses
 
-### 1. **Fee Optimization for Users**
+### 1. Fee Optimization for Users
 **Scenario**: A user wants to send Bitcoin but doesn't know what fee to set.
 
 **How this helps**:
@@ -65,7 +65,7 @@ python fee_sim.py
 # User sets their fee to 46-50 sat/vB for next block inclusion
 ```
 
-### 2. **Wallet Application Integration**
+### 2. Wallet Application Integration
 **Scenario**: A Bitcoin wallet app needs to suggest optimal fees.
 
 **How this helps**:
@@ -75,7 +75,7 @@ python fee_sim.py
 
 **Business Value**: Improved user experience, fewer support tickets about stuck transactions
 
-### 3. **Educational Tool for Blockchain Courses**
+### 3. Educational Tool for Blockchain Courses
 **Scenario**: Teaching students about Bitcoin's fee market and mining economics.
 
 **How this helps**:
@@ -85,7 +85,7 @@ python fee_sim.py
 
 **Impact**: Makes abstract concepts concrete and interactive
 
-### 4. **Market Analysis for Traders**
+### 4. Market Analysis for Traders
 **Scenario**: Cryptocurrency traders need to time their transactions during high volatility.
 
 **How this helps**:
@@ -95,7 +95,7 @@ python fee_sim.py
 
 **Example Use Case**: An exchange moving funds between wallets can save thousands in fees by timing transactions properly
 
-### 5. **Research and Development**
+### 5. Research and Development
 **Scenario**: Blockchain researchers studying fee market dynamics.
 
 **How this helps**:
@@ -108,7 +108,7 @@ python fee_sim.py
 - Block size debate analysis
 - Transaction prioritization research
 
-### 6. **Bitcoin Node Operators**
+### 6. Bitcoin Node Operators
 **Scenario**: Running a Bitcoin node and want to understand mempool behavior.
 
 **How this helps**:
@@ -118,7 +118,7 @@ python fee_sim.py
 
 ---
 
-## ⚙️ Core Algorithm
+## The algorithm explained
 
 ### The Greedy Algorithm Explained
 
@@ -220,7 +220,7 @@ Block packing:
 
 ---
 
-## 🏗️ Technical Implementation
+## How I built it
 
 ### Code Structure
 
@@ -324,7 +324,7 @@ def _generate_synthetic_data(self):
 
 ---
 
-## 🏛️ Architecture
+## Architecture stuff
 
 ### System Components
 
@@ -378,7 +378,7 @@ bitcoin-fee-simulator/
 
 ---
 
-## 🔬 Performance Considerations
+## Performance notes
 
 ### Scalability
 - **Current**: Handles 250-500 transactions efficiently
@@ -397,7 +397,7 @@ bitcoin-fee-simulator/
 
 ---
 
-## 📚 References
+## References
 
 1. **Bitcoin Block Weight**: [BIP 141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki)
 2. **Fee Estimation**: [Bitcoin Core Fee Estimation](https://bitcoincore.org/en/faq/fee-estimation/)
@@ -406,16 +406,16 @@ bitcoin-fee-simulator/
 
 ---
 
-## 🎓 Learning Outcomes
+## What I learned
 
 By building this project, I demonstrated:
 
-✅ **Algorithm Design**: Implemented and optimized a greedy algorithm  
-✅ **API Integration**: Real-time data fetching with error handling  
-✅ **User Experience**: Beautiful CLI with Rich library  
-✅ **Software Engineering**: Clean code, fallback systems, documentation  
-✅ **Domain Knowledge**: Deep understanding of Bitcoin's fee market  
-✅ **Problem Solving**: Identified a real problem and built a practical solution  
+- **Algorithm Design**: Implemented and optimized a greedy algorithm  
+- **API Integration**: Real-time data fetching with error handling  
+- **User Experience**: Beautiful CLI with Rich library  
+- **Software Engineering**: Clean code, fallback systems, documentation  
+- **Domain Knowledge**: Deep understanding of Bitcoin's fee market  
+- **Problem Solving**: Identified a real problem and built a practical solution  
 
 ---
 

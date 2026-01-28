@@ -39,7 +39,7 @@ class MempoolSimulator:
 
     def fetch_live_mempool(self):
         """Hit the mempool.space API and grab real tx data"""
-        console.print("[bold blue]🔗 Connecting to the Bitcoin network (via mempool.space)...[/bold blue]")
+        console.print("[bold blue]Connecting to mempool.space...[/bold blue]")
         try:
             r = requests.get(MEMPOOL_API, timeout=10)  # 10s should be enough
             r.raise_for_status()
@@ -57,17 +57,17 @@ class MempoolSimulator:
                     "rate": tx["fee"] / tx["vsize"]  # the magic number
                 })
             
-            console.print(f"[green]✅ Found {len(self.mempool)} real transactions in the wild.[/green]")
+            console.print(f"[green]Found {len(self.mempool)} real transactions in the wild.[/green]")
         
         except Exception as e:
             # API down? No internet? Whatever, we'll fake it
-            console.print(f"[red]❌ API Fetch failed: {e}[/red]")
-            console.print("[yellow]⚠️  Falling back to fake data so you can still play around[/yellow]")
+            console.print(f"[red]API fetch failed: {e}[/red]")
+            console.print("[yellow]Falling back to fake data so you can still play around[/yellow]")
             self._generate_synthetic_data()
 
     def load_local_json(self, path):
         """Load mempool from a JSON file (useful for testing)"""
-        console.print(f"[blue]📂 Reading local mempool snapshot: {path}[/blue]")
+        console.print(f"[blue]Reading local mempool snapshot: {path}[/blue]")
         try:
             with open(path, 'r') as f:
                 data = json.load(f)
@@ -80,9 +80,9 @@ class MempoolSimulator:
                     valid_txs.append(tx)
             
             self.mempool = valid_txs
-            console.print(f"[green]✅ Loaded {len(self.mempool)} transactions from disk.[/green]")
+            console.print(f"[green]Loaded {len(self.mempool)} transactions from disk.[/green]")
         except Exception as e:
-            console.print(f"[red]💥 Error reading file: {e}[/red]")
+            console.print(f"[red]Error reading file: {e}[/red]")
 
     def _generate_synthetic_data(self):
         """Make up some fake transactions when API is down"""
@@ -164,11 +164,11 @@ def cli(mempool_file, block_size):
 
     # Run the simulation with a fancy progress bar (because why not)
     with Progress() as progress:
-        progress.add_task("[cyan]🔨 Mining block...", total=None)
+        progress.add_task("[cyan]Mining block...", total=None)
         stats = sim.run_simulation()
 
     # --- Show the results ---
-    results_table = Table(title="\n💎 Top Candidates for Next Block", header_style="bold magenta")
+    results_table = Table(title="\nTop Candidates for Next Block", header_style="bold magenta")
     results_table.add_column("Rank", justify="right")
     results_table.add_column("TXID (truncated)", style="dim")
     results_table.add_column("Rate (sat/vB)", style="bold cyan")
@@ -189,12 +189,12 @@ def cli(mempool_file, block_size):
 
     # Summary stats
     summary_text = (
-        f"💰 [bold]Total Fees:[/bold] {stats['fees']:,} sats\n"
-        f"📊 [bold]Average Rate:[/bold] {stats['avg_rate']:.2f} sat/vB\n"
-        f"📦 [bold]Block Fill:[/bold] {stats['vsize']:,} / {block_size:,} vB "
+        f"[bold]Total Fees:[/bold] {stats['fees']:,} sats\n"
+        f"[bold]Average Rate:[/bold] {stats['avg_rate']:.2f} sat/vB\n"
+        f"[bold]Block Fill:[/bold] {stats['vsize']:,} / {block_size:,} vB "
         f"({(stats['vsize']/block_size)*100:.2f}%)\n"
-        f"📈 [bold]TXs Included:[/bold] {len(sim.packed_block)}\n"
-        f"⏳ [bold]TXs Queued (Mempool):[/bold] {len(sim.left_behind)}"
+        f"[bold]TXs Included:[/bold] {len(sim.packed_block)}\n"
+        f"[bold]TXs Queued (Mempool):[/bold] {len(sim.left_behind)}"
     )
     console.print(Panel(summary_text, title="Simulation Stats", border_style="green", expand=False))
 
